@@ -1,0 +1,121 @@
+<div class="wrapper">
+    <aside id="sidebar">
+        <div class="d-flex">
+            <button class="toggle-btn" type="button">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="sidebar-logo">
+                <a href="#">CodzSword</a>
+            </div>
+        </div>
+        <ul class="sidebar-nav">
+            <li class="sidebar-item">
+                <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
+                    data-bs-target="#rh" aria-expanded="false" aria-controls="rh">
+                    <i class="fas fa-users"></i>
+                    <span>Recursos Humanos</span>
+                </a>
+                <ul id="rh" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link" id="linkVacaciones">Vacaciones</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link" id="linkIncapacidad">Incapacidades</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link" id="linkPermisoPersonal">Permiso Personal</a>
+                    </li>
+                </ul>
+            </li>
+
+
+            <li class="sidebar-item">
+                <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
+                    data-bs-target="#servicios" aria-expanded="false" aria-controls="servicios">
+                    <i class="fa-solid fa-wrench"></i>
+                    <span>Servicios Generales</span>
+                </a>
+                <ul id="servicios" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link" id="linkSolicitudChofer">Solicitud de Chofer</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link" id="linkMttoVehiculos">Mtto. De Vehiculos</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link" id="linkProveedores">Proveedores</a>
+                    </li>
+                </ul>
+            </li>
+
+
+            <li class="sidebar-item">
+                <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
+                    data-bs-target="#servicios" aria-expanded="false" aria-controls="servicios">
+                    <i class="fa-solid fa-desktop"></i>
+                    <span>Sistemas</span>
+                </a>
+                <ul id="servicios" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">Solicitar Equipo</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">Mtto. De Equipo</a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">Instalación Software</a>
+                    </li>
+                </ul>
+            </li>
+
+
+            <!-- <li class="sidebar-item">
+                <a href="#" class="sidebar-link collapsed has-dropdown" data-bs-toggle="collapse"
+                    data-bs-target="#multi" aria-expanded="false" aria-controls="multi">
+                    <i class="fas fa-layer-group"></i>
+                    <span>Multi Level</span>
+                </a>
+                <ul id="multi" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link collapsed" data-bs-toggle="collapse"
+                            data-bs-target="#multi-two" aria-expanded="false" aria-controls="multi-two">
+                            Two Links
+                        </a>
+                        <ul id="multi-two" class="sidebar-dropdown list-unstyled collapse">
+                            <li class="sidebar-item">
+                                <a href="#" class="sidebar-link">Link 1</a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="#" class="sidebar-link">Link 2</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li> -->
+
+            <li class="sidebar-item">
+                <a href="#" class="sidebar-link">
+                    <i class="fas fa-bell"></i>
+                    <span>Notification</span>
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a href="#" class="sidebar-link">
+                    <i class="fas fa-cog"></i>
+                    <span>Setting</span>
+                </a>
+            </li>
+        </ul>
+        <div class="sidebar-footer">
+            <a href="/logout" class="sidebar-link">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+            </a>
+        </div>
+    </aside>
+    <div class="main p-3">
+        <div class="">
+            <%- include('./formularios'); %>
+        </div>
+    </div>
+</div>

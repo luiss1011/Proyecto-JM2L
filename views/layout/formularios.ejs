@@ -1,0 +1,733 @@
+<div class="contenedor-principal" id="contenedorVacaciones">
+    <form id="formularioVacaciones" action="/solicitud/rh/vacaciones" method="POST" enctype="multipart/form-data" class="formulario-confirmacion">
+      <div class="encabezado personalizado-header">
+        <h3><i class="fas fa-user-tie"></i> Solicitud de Vacaciones</h3>
+      </div>
+  
+      <div class="seccion-formulario seccion-activa seccion-estilizada" id="seccionInfoEmpleadoVacaciones">
+        <h5><i class="fas fa-user-circle"></i> Información del Empleado</h5>
+  
+        <div class="fila">
+          <div class="columna">
+            <label for="numeroEmpleado">Número de empleado</label>
+            <input type="text" name="numeroEmpleado" value="<%= empleado.numeroEmpleado %>" disabled>
+          </div>
+          <div class="columna">
+            <label for="nombreCompleto">Nombre completo</label>
+            <input type="text" name="nombre" value="<%= empleado.nombre %>" disabled>
+          </div>
+        </div>
+  
+        <div class="fila">
+          <div class="columna">
+            <label for="departamentoVacaciones">Departamento</label>
+            <input type="text" name="departamento" value="<%= empleado.departamento %>" disabled>
+          </div>
+          <div class="columna">
+            <label for="puesto">Puesto</label>
+            <input type="text" name="puesto" value="<%= empleado.puesto %>" disabled>
+          </div>
+        </div>
+  
+        <div class="fila">
+          <div class="columna">
+            <label for="fechaInicio">Fecha de inicio</label>
+            <input type="date" id="fechaInicioVacaciones" name="fechaInicio" required>
+          </div>
+          <div class="columna">
+            <label for="fechaFin">Fecha de fin</label>
+            <input type="date" id="fechaFinVacaciones" name="fechaFin" required>
+          </div>
+        </div>
+  
+        <div class="grupo-formulario">
+          <label for="comentarios">Comentarios adicionales</label>
+          <textarea id="comentariosVacaciones" name="comentarios" rows="3"></textarea>
+        </div>
+  
+        <div class="carga-documentos personalizada-carga">
+          <h5><i class="fas fa-file-upload"></i> Cargar Documentos</h5>
+          <p class="texto-pequeno">Por favor, adjunte los documentos necesarios para su solicitud (máximo 5MB por archivo).</p>
+          <label for="documento">Documento 1</label>
+          <input type="file" id="" name="documento">
+        </div>
+  
+        <div class="botones">
+          <button type="button" id="botonLimpiar" class="boton-secundario personalizado-btn-secundario"><i class="fas fa-eraser"></i> Limpiar</button>
+          <button type="submit" class="boton-primario personalizado-btn-primario"><i class="fas fa-paper-plane"></i> Enviar Solicitud</button>
+        </div>
+
+        <input type="hidden" name="usuarioId" value="<%= empleado.id %>">
+      </div>
+    </form>
+</div>
+   
+  <div class="contenedor-principal" id="contenedorIncapacidad">
+    <form id="formularioIncapacidad" action="/solicitud/rh/incapacidad" method="POST" enctype="multipart/form-data" class="formulario-confirmacion">
+      <div class="encabezado">
+        <h3><i class="fas fa-user-tie"></i>Solicitud de Incapacidad</h3>
+      </div>
+
+      <div class="seccion-formulario" id="seccionInfoEmpleadoIncapacidad">
+        <h5><i class="fas fa-user-circle"></i> Información del Empleado</h5>
+
+        <div class="fila">
+          <div class="columna">
+            <label for="numeroEmpleado">Número de empleado</label>
+            <input type="text" name="numeroEmpleado" value="<%= empleado.numeroEmpleado %>" disabled>
+          </div>
+          <div class="columna">
+            <label for="nombreCompleto">Nombre completo</label>
+            <input type="text" name="nombre" value="<%= empleado.nombre %>" disabled>
+          </div>
+        </div>
+  
+        <div class="fila">
+          <div class="columna">
+            <label for="departamentoVacaciones">Departamento</label>
+            <input type="text" name="departamento" value="<%= empleado.departamento %>" disabled>
+          </div>
+          <div class="columna">
+            <label for="puesto">Puesto</label>
+            <input type="text" name="puesto" value="<%= empleado.puesto %>" disabled>
+          </div>
+        </div>
+
+        <div class="fila">
+          <div class="columna">
+            <label for="fechaInicio">Fecha de inicio</label>
+            <input type="date" id="fechaInicioIncapacidad" name="fechaInicio" required>
+          </div>
+          <div class="columna">
+            <label for="fechaFin">Fecha de fin</label>
+            <input type="date" id="fechaFinIncapacidad" name="fechaFin" required>
+          </div>
+        </div>
+
+        <div class="grupo-formulario">
+          <label for="comentariosIncapacidad">Comentarios adicionales</label>
+          <textarea id="comentariosIncapacidad" name="comentarios" rows="3"></textarea>
+        </div>
+
+        <div class="carga-documentos personalizada-carga">
+          <h5><i class="fas fa-file-upload"></i> Cargar Documentos</h5>
+          <p class="texto-pequeno">Por favor, adjunte los documentos necesarios para su solicitud (máximo 5MB por archivo).</p>
+          <label for="documento">Documento 1</label>
+          <input type="file" id="" name="documento">
+        </div>
+
+        <div class="botones">
+          <button type="button" id="botonLimpiar" class="boton-secundario"><i class="fas fa-eraser"></i>Limpiar</button>
+          <button type="submit" class="boton-primario"><i class="fas fa-paper-plane"></i>Enviar Solicitud</button>
+        </div>
+
+        <input type="hidden" name="usuarioId" value="<%= empleado.id %>">
+      </div>
+    </form>
+  </div>
+
+  <div class="contenedor-principal" id="contenedorPermiso">
+    <form id="formularioPermisoPersonal" action="/solicitud/rh/permisos" method="POST" enctype="multipart/form-data" class="formulario-confirmacion">
+      <div class="encabezado">
+        <h3><i class="fas fa-user-tie"></i>Solicitud de Permiso Personal</h3>
+      </div>
+  
+      <div id="seccionInfoEmpleadoPermiso" class="seccion-formulario">
+        <h5><i class="fas fa-user-circle"></i> Información del Empleado</h5>
+  
+        <div class="fila">
+          <div class="columna">
+            <label for="numeroEmpleado">Número de empleado</label>
+            <input type="text" name="numeroEmpleado" value="<%= empleado.numeroEmpleado %>" disabled>
+          </div>
+          <div class="columna">
+            <label for="nombreCompleto">Nombre completo</label>
+            <input type="text" name="nombre" value="<%= empleado.nombre %>" disabled>
+          </div>
+        </div>
+  
+        <div class="fila">
+          <div class="columna">
+            <label for="departamentoVacaciones">Departamento</label>
+            <input type="text" name="departamento" value="<%= empleado.departamento %>" disabled>
+          </div>
+          <div class="columna">
+            <label for="puesto">Puesto</label>
+            <input type="text" name="puesto" value="<%= empleado.puesto %>" disabled>
+          </div>
+        </div>
+  
+        <div class="fila">
+          <div class="columna">
+            <label for="fechaInicioPermiso">Fecha de inicio</label>
+            <input type="date" id="fechaInicioPermiso" name="fechaInicio" required>
+          </div>
+          <div class="columna">
+            <label for="fechaFinPermiso">Fecha de fin</label>
+            <input type="date" id="fechaFinPermiso" name="fechaFin" required>
+          </div>
+        </div>
+  
+        <div class="grupo-formulario">
+          <label for="comentariosPermiso">Comentarios adicionales</label>
+          <textarea id="comentariosPermiso" name="comentarios" rows="3"></textarea>
+        </div>
+  
+        <div class="carga-documentos personalizada-carga">
+          <h5><i class="fas fa-file-upload"></i> Cargar Documentos</h5>
+          <p class="texto-pequeno">Por favor, adjunte los documentos necesarios para su solicitud (máximo 5MB por archivo).</p>
+          <label for="documento">Documento 1</label>
+          <input type="file" id="" name="documento">
+        </div>
+  
+        <div class="botones">
+          <button type="button" id="botonLimpiarPermiso" class="boton-secundario">
+            <i class="fas fa-eraser"></i>Limpiar
+          </button>
+          <button type="submit" class="boton-primario">
+            <i class="fas fa-paper-plane"></i>Enviar Solicitud
+          </button>
+        </div>
+
+        <input type="hidden" name="usuarioId" value="<%= empleado.id %>">
+      </div>
+    </form>
+  </div>
+
+  <div class="contenedor-principal" id="contenedorSolicitudChofer">
+    <form id="formularioSolicitudChofer" action="/solicitud/servicios/chofer" method="POST" enctype="multipart/form-data">
+      <div class="encabezado">
+        <h3><i class="fas fa-user-tie"></i>Solicitud de Chofer</h3>
+      </div>
+  
+      <div id="seccionInfoSolicitudChofer" class="seccion-formulario">
+        <h5><i class="fas fa-user-circle"></i> Información del Empleado</h5>
+  
+        <div class="fila">
+          <div class="columna">
+            <label for="numeroEmpleado">Número de empleado</label>
+            <input type="text" name="numeroEmpleado" value="<%= empleado.numeroEmpleado %>" disabled>
+          </div>
+          <div class="columna">
+            <label for="nombreCompleto">Nombre completo</label>
+            <input type="text" name="nombre" value="<%= empleado.nombre %>" disabled>
+          </div>
+        </div>
+  
+        <div class="fila">
+          <div class="columna">
+            <label for="departamentoVacaciones">Departamento</label>
+            <input type="text" name="departamento" value="<%= empleado.departamento %>" disabled>
+          </div>
+          <div class="columna">
+            <label for="puesto">Puesto</label>
+            <input type="text" name="puesto" value="<%= empleado.puesto %>" disabled>
+          </div>
+        </div>
+  
+        <div class="fila">
+          <div class="columna">
+            <label for="fechaSalida">Fecha de salida</label>
+            <input type="date" id="fechaSalida" name="fechaSalida" required>
+          </div>
+          <div class="columna">
+            <label for="horaSalida">Hora de salida</label>
+            <input type="time" id="horaSalida" name="horaSalida" required>
+          </div>
+        </div>
+  
+        <div class="fila">
+          <div class="columna">
+            <label for="fechaRegreso">Fecha de regreso</label>
+            <input type="date" id="fechaRegreso" name="fechaRegreso" required>
+          </div>
+          <div class="columna">
+            <label for="horaRegreso">Hora de regreso</label>
+            <input type="time" id="horaRegreso" name="horaRegreso" required>
+          </div>
+        </div>
+  
+        <div class="grupo-formulario">
+          <label for="comentariosChofer">Comentarios adicionales</label>
+          <textarea id="comentariosChofer" name="comentarios" rows="3"></textarea>
+        </div>
+  
+        <div class="botones">
+          <button type="button" id="botonLimpiarChofer" class="boton-secundario">
+            <i class="fas fa-eraser"></i>Limpiar
+          </button>
+          <button type="submit" class="boton-primario">
+            <i class="fas fa-paper-plane"></i>Enviar Solicitud
+          </button>
+        </div>
+
+        <input type="hidden" name="usuarioId" value="<%= empleado.id %>">
+      </div>
+    </form>
+  </div>
+  
+  <div class="contenedor-principal" id="contenedorMantenimientoVehiculos">
+    <form id="formularioMttov" action="/solicitud/servicios/mantenimiento" method="POST" enctype="multipart/form-data"> 
+      <div class="encabezado">
+        <h3><i class="fas fa-user-tie"></i>Mantenimiento de vehículos</h3>
+      </div>
+  
+      <div id="seccionInfoEmpleadoMttoVehiculos" class="seccion-formulario">
+        <h5><i class="fas fa-user-circle"></i> Información del Empleado</h5>
+  
+        <div class="fila">
+          <div class="columna">
+            <label for="numeroEmpleado">Número de empleado</label>
+            <input type="text" name="numeroEmpleado" value="<%= empleado.numeroEmpleado %>" disabled>
+          </div>
+          <div class="columna">
+            <label for="nombreCompleto">Nombre completo</label>
+            <input type="text" name="nombre" value="<%= empleado.nombre %>" disabled>
+          </div>
+        </div>
+  
+        <div class="fila">
+          <div class="columna">
+            <label for="departamentoVacaciones">Departamento</label>
+            <input type="text" name="departamento" value="<%= empleado.departamento %>" disabled>
+          </div>
+          <div class="columna">
+            <label for="puesto">Puesto</label>
+            <input type="text" name="puesto" value="<%= empleado.puesto %>" disabled>
+          </div>
+        </div>
+  
+        <h5><i class="fa-solid fa-truck"></i> Información del vehículo</h5>
+  
+        <div class="fila">
+          <div class="columna">
+            <label for="vehiculo">Modelo</label>
+            <input type="text" id="vehiculo" name="modeloVehiculo" required>
+          </div>
+          <div class="columna">
+            <label for="marca">Marca</label>
+            <input type="text" id="marca" name="marca" required>
+          </div>
+        </div>
+  
+        <div class="columna">
+          <label for="seguro">Número de seguro</label>
+          <input type="text" id="seguro" name="seguro" required>
+        </div>
+  
+        <div class="fila">
+          <div class="columna">
+            <label for="poliza">Número de póliza</label>
+            <input type="text" id="poliza" required>
+          </div>
+        </div>
+  
+        <div class="fila">
+          <div class="columna" id="fechaServicioContainer">
+            <label for="fechaServicioProximo">Fecha para próximo servicio</label>
+            <input type="date" id="fechaServicioProximo" name="proximaVerificacion">
+          </div>
+        </div>
+  
+        <div class="grupo-formulario">
+          <label for="comentariosVehiculo">Comentarios adicionales</label>
+          <textarea id="comentariosVehiculo" name="comentarios" rows="3"></textarea>
+        </div>
+  
+        <div class="carga-documentos">
+          <h5><i class="fas fa-file-upload"></i> Cargar Documentos</h5>
+          <p class="texto-pequeno">Por favor, adjunte los documentos necesarios para su solicitud (máximo 5MB por archivo).</p>
+          <div class="grupo-formulario">
+            <label for="documentoVehiculo">Documento 1</label>
+            <input type="file" id="documentoVehiculo" name="documento">
+          </div>
+        </div>
+  
+        <div class="botones">
+          <button type="button" id="botonLimpiarVehiculo" class="boton-secundario">
+            <i class="fas fa-eraser"></i>Limpiar
+          </button>
+          <button type="submit" class="boton-primario">
+            <i class="fas fa-paper-plane"></i>Enviar Solicitud
+          </button>
+        </div>
+
+        <input type="hidden" name="usuarioId" value="<%= empleado.id %>">
+      </div>
+    </form>
+  </div>
+  
+  <div class="contenedor-principal" id="contenedorSolicitudProveedores">
+    <form id="formularioSolicitudProveedores"  action="/solicitud/servicios/proveedores" method="post" enctype="multipart/form-data">
+      <div class="encabezado">
+        <h3><i class="fas fa-user-tie"></i> Solicitud de Proveedores</h3>
+      </div>
+  
+      <div id="seccionInfoSolicitudProveedores" class="seccion-formulario">
+        <h5><i class="fas fa-user-circle"></i> Información del Empleado</h5>
+  
+        <div class="fila">
+          <div class="columna">
+            <label for="numeroEmpleado">Número de empleado</label>
+            <input type="text" name="numeroEmpleado" value="<%= empleado.numeroEmpleado %>" disabled>
+          </div>
+          <div class="columna">
+            <label for="nombreCompleto">Nombre completo</label>
+            <input type="text" name="nombre" value="<%= empleado.nombre %>" disabled>
+          </div>
+        </div>
+  
+        <div class="fila">
+          <div class="columna">
+            <label for="departamentoVacaciones">Departamento</label>
+            <input type="text" name="departamento" value="<%= empleado.departamento %>" disabled>
+          </div>
+          <div class="columna">
+            <label for="puesto">Puesto</label>
+            <input type="text" name="puesto" value="<%= empleado.puesto %>" disabled>
+          </div>
+        </div>
+  
+        <h3><i class="fa-solid fa-clipboard"></i>Solicitud de Proveedores</h3>
+  
+        <div class="fila">
+          <div class="columna">
+            <label for="importancia">Importancia de la solicitud</label>
+            <select id="importancia" required>
+              <option value="" selected disabled>Seleccione...</option>
+              <option value="Normal">Normal</option>
+              <option value="Alta">Alta</option>
+              <option value="Urgente">Urgente</option>
+            </select>
+          </div>
+          <div class="columna">
+            <label for="nombreProveedor">Nombre del proveedor</label>
+            <input type="text" id="nombreProveedor">
+          </div>
+        </div>
+  
+        <div class="fila">
+          <div class="columna">
+            <label for="telefonoProveedor">Número de teléfono del proveedor</label>
+            <input type="text" id="telefonoProveedor">
+          </div>
+          <div class="columna">
+            <label for="fechaAsistencia">Fecha de asistencia a la empresa</label>
+            <input type="date" id="fechaAsistencia" required>
+          </div>
+        </div>
+  
+        <div class="fila">
+          <div class="columna">
+            <label for="horaEntrada">Hora de entrada</label>
+            <input type="time" id="horaEntrada" required>
+          </div>
+          <div class="columna">
+            <label for="horaSalida">Hora de salida</label>
+            <input type="time" id="horaSalida" required>
+          </div>
+        </div>
+  
+        <div class="fila">
+          <div class="columna">
+            <label for="restricciones">Restricciones dentro de la empresa</label>
+            <textarea id="restricciones" rows="3" placeholder="Ej. No uso de celular, ingreso con EPP, etc."></textarea>
+          </div>
+        </div>
+  
+        <div class="carga-documentos">
+          <h5><i class="fas fa-file-upload"></i> Cargar Documentos</h5>
+          <p class="texto-pequeno">Adjunte los documentos necesarios (máx. 5MB).</p>
+          <div class="grupo-formulario">
+            <label for="documentoProveedor">Documento 1</label>
+            <input type="file" id="documentoProveedor">
+          </div>
+        </div>
+  
+        <div class="botones">
+          <button type="button" id="botonLimpiarProveedor" class="boton-secundario">
+            <i class="fas fa-eraser"></i>Limpiar
+          </button>
+          <button type="submit" class="boton-primario">
+            <i class="fas fa-paper-plane"></i>Enviar Solicitud
+          </button>
+        </div>
+
+        <input type="hidden" name="usuarioId" value="<%= empleado.id %>">
+      </div>
+    </form>
+  </div>
+  
+
+  <div class="contenedor-principal" id="contenedorEquipo">
+    <form id="formularioEquipo">
+      <div class="encabezado">
+        <h3><i class="fas fa-tools"></i> Solicitud de Requerimientos de TI</h3>
+      </div>
+  
+      <div class="seccion-formulario" id="seccionInfoEmpleadoEquipo">
+        <h5><i class="fas fa-user-circle"></i> Información del Empleado</h5>
+        
+        <div class="fila">
+          <div class="columna">
+            <label for="numeroEmpleado">Número de empleado</label>
+            <input type="text" name="numeroEmpleado" value="<%= empleado.numeroEmpleado %>" disabled>
+          </div>
+          <div class="columna">
+            <label for="nombreCompleto">Nombre completo</label>
+            <input type="text" name="nombre" value="<%= empleado.nombre %>" disabled>
+          </div>
+        </div>
+  
+        <div class="fila">
+          <div class="columna">
+            <label for="departamentoVacaciones">Departamento</label>
+            <input type="text" name="departamento" value="<%= empleado.departamento %>" disabled>
+          </div>
+          <div class="columna">
+            <label for="puesto">Puesto</label>
+            <input type="text" name="puesto" value="<%= empleado.puesto %>" disabled>
+          </div>
+        </div>
+  
+        <h5><i class="fas fa-desktop"></i> Requerimientos de Hardware</h5>
+        <div class="checkboxes">
+          <label><input type="checkbox" name="hardware" value="computadora"> Computadora</label>
+          <label><input type="checkbox" name="hardware" value="monitor"> Monitor</label>
+          <label><input type="checkbox" name="hardware" value="mouse"> Mouse</label>
+          <label><input type="checkbox" name="hardware" value="teclado"> Teclado Externo</label>
+          <label><input type="checkbox" name="hardware" value="telefono"> Teléfono fijo</label>
+          <label><input type="checkbox" name="hardware" value="celular"> Celular</label>
+          <label><input type="checkbox" name="hardware" value="otro"> Otro: <input type="text" name="hardwareOtro"></label>
+        </div>
+  
+        <h5><i class="fas fa-cogs"></i> Requerimientos de Software</h5>
+        <div class="checkboxes">
+          <label><input type="checkbox" name="software" value="1"> Sistema Operativo</label>
+          <label><input type="checkbox" name="software" value="2"> Office</label>
+          <label><input type="checkbox" name="software" value="3"> Antivirus</label>
+          <label><input type="checkbox" name="software" value="4"> Navegador</label>
+          <label><input type="checkbox" name="software" value="5"> Adobe Reader</label>
+          <label><input type="checkbox" name="software" value="6"> Otro</label>
+          <input type="text" name="softwareOtro">
+        </div>
+  
+        <h5><i class="fas fa-key"></i> Accesos y Permisos</h5>
+        <div class="checkboxes">
+          <label><input type="checkbox" name="acceso" value="correo"> Correo Institucional</label>
+          <label><input type="checkbox" name="acceso" value="vpn"> Acceso VPN</label>
+          <label><input type="checkbox" name="acceso" value="intranet"> Intranet</label>
+          <label><input type="checkbox" name="acceso" value="sistemas"> Sistemas internos</label>
+          <label><input type="checkbox" name="acceso" value="otro"> Otro: <input type="text" name="accesoOtro"></label>
+        </div>
+  
+        <h5><i class="fas fa-sliders-h"></i> Configuraciones Adicionales</h5>
+        <div class="checkboxes">
+          <label><input type="checkbox" name="configAdicional" value="correo"> Correo Electrónico</label>
+          <label><input type="checkbox" name="configAdicional" value="multifuncional"> Multifuncional</label>
+          <label><input type="checkbox" name="configAdicional" value="liberacionJapón"> Liberación línea celular a Japón</label>
+          <label><input type="checkbox" name="configAdicional" value="listaDistribucion"> Lista de distribución <input type="text" name="listaDistribucionDetalle"></label>
+          <label><input type="checkbox" name="configAdicional" value="otros"> Otros <input type="text" name="otrosDetalle"></label>
+        </div>
+  
+        <div class="botones">
+          <button type="button" id="botonLimpiarEquipo" class="boton-secundario">
+            <i class="fas fa-eraser"></i> Limpiar
+          </button>
+          <button type="submit" class="boton-primario">
+            <i class="fas fa-paper-plane"></i> Enviar Solicitud
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+  
+  <div class="contenedor-principal" id="contenedorMantenimiento">
+    <form id="formularioMantenimiento">
+      <div class="encabezado">
+        <h3><i class="fas fa-user-tie"></i>Solicitud de Equipo de Mantenimiento</h3>
+      </div>
+  
+      <div class="seccion-formulario" id="seccionInfoEmpleadoMantenimiento">
+        <h5><i class="fas fa-user-circle"></i> Información del Empleado</h5>
+  
+        <div class="fila">
+          <div class="columna">
+            <label for="numeroEmpleadoMantenimiento">Número de empleado</label>
+            <input type="text" id="numeroEmpleadoMantenimiento" name="numeroEmpleadoMantenimiento">
+          </div>
+          <div class="columna">
+            <label for="nombreCompletoMantenimiento">Nombre completo</label>
+            <input type="text" id="nombreCompletoMantenimiento" name="nombreCompletoMantenimiento">
+          </div>
+        </div>
+  
+        <div class="fila">
+          <div class="columna">
+            <label for="departamentoMantenimiento">Departamento</label>
+            <select id="departamentoMantenimiento" name="departamentoMantenimiento">
+              <option value="">Selecciona un departamento</option>
+              <option value="TI">TI</option>
+              <option value="Recursos Humanos">Recursos Humanos</option>
+              <option value="Finanzas">Finanzas</option>
+              <option value="Marketing">Marketing</option>
+              <option value="Operaciones">Operaciones</option>
+            </select>
+          </div>
+          <div class="columna">
+            <label for="puestoMantenimiento">Puesto</label>
+            <input type="text" id="puestoMantenimiento" name="puestoMantenimiento">
+          </div>
+        </div>
+  
+        <div class="seccion-formulario" id="seccionInfoEquipo">
+          <h5><i class="fas fa-tools"></i> Detalles del Mantenimiento</h5>
+  
+          <div class="fila">
+            <div class="columna">
+              <label for="tipoEquipo">Tipo de equipo</label>
+              <select id="tipoEquipo" required>
+                <option value="" selected disabled>Seleccione...</option>
+                <option value="pc">PC de Escritorio</option>
+                <option value="laptop">Laptop</option>
+                <option value="impresora">Impresora</option>
+                <option value="otro">Otro</option>
+              </select>
+            </div>
+            <div class="columna">
+              <label for="marcaModelo">Marca y modelo</label>
+              <input type="text" id="marcaModelo" required>
+            </div>
+          </div>
+  
+          <div class="fila">
+            <div class="columna">
+              <label for="nivelUrgencia">Nivel de urgencia</label>
+              <select id="nivelUrgencia" required>
+                <option value="" selected disabled>Seleccione...</option>
+                <option value="bajo">Bajo</option>
+                <option value="medio">Medio</option>
+                <option value="alto">Alto</option>
+                <option value="critico">Crítico</option>
+              </select>
+            </div>
+            <div class="columna">
+              <label for="fechaRequerida">Fecha requerida</label>
+              <input type="date" id="fechaRequerida" required>
+            </div>
+          </div>
+  
+          <div class="fila">
+            <div class="columna" style="width: 100%;">
+              <label for="descripcionFalla">Descripción de la falla</label>
+              <textarea id="descripcionFalla" rows="4" required></textarea>
+            </div>
+          </div>
+  
+          <div class="botones">
+            <button type="button" id="botonLimpiarMantenimiento" class="boton-secundario">
+              <i class="fas fa-eraser"></i> Limpiar
+            </button>
+            <button type="submit" class="boton-primario">
+              <i class="fas fa-paper-plane"></i> Enviar Solicitud
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  
+  <div class="contenedor-principal" id="contenedorSoftware">
+    <form id="formularioSoftware">
+      <div class="encabezado">
+        <h3><i class="fas fa-user-tie"></i>Solicitud de Instalación de Software</h3>
+      </div>
+  
+      <div id="seccionInfoEmpleadoSoftware" class="seccion-formulario">
+        <h5><i class="fas fa-user-circle"></i> Información del Empleado</h5>
+  
+        <div class="fila">
+          <div class="columna">
+            <label for="numeroEmpleadoSoftware">Número de empleado</label>
+            <input type="text" id="numeroEmpleadoSoftware" name="numeroEmpleadoSoftware">
+          </div>
+          <div class="columna">
+            <label for="nombreCompletoSoftware">Nombre completo</label>
+            <input type="text" id="nombreCompletoSoftware" name="nombreCompletoSoftware">
+          </div>
+        </div>
+  
+        <div class="fila">
+          <div class="columna">
+            <label for="departamentoSoftware">Departamento</label>
+            <select id="departamentoSoftware" name="departamentoSoftware">
+              <option value="" selected disabled>Seleccione un departamento</option>
+              <option value="TI">TI</option>
+              <option value="Recursos Humanos">Recursos Humanos</option>
+              <option value="Finanzas">Finanzas</option>
+              <option value="Marketing">Marketing</option>
+              <option value="Operaciones">Operaciones</option>
+            </select>
+          </div>
+          <div class="columna">
+            <label for="puestoSoftware">Puesto</label>
+            <input type="text" id="puestoSoftware" name="puestoSoftware">
+          </div>
+        </div>
+  
+        <div id="seccionSoftware" class="seccion-formulario">
+          <h5><i class="fas fa-laptop-code"></i> Solicitud de Instalación de Software</h5>
+  
+          <div class="fila">
+            <div class="columna">
+              <label for="sistemaOperativo">Sistema operativo</label>
+              <select id="sistemaOperativo" name="sistemaOperativo" required>
+                <option value="" disabled selected>Seleccione...</option>
+                <option value="windows10">Windows 10</option>
+                <option value="windows11">Windows 11</option>
+                <option value="macos">macOS</option>
+                <option value="linux">Linux</option>
+              </select>
+            </div>
+            <div class="columna">
+              <label for="versionSoftware">Versión</label>
+              <input type="text" id="versionSoftware" name="versionSoftware">
+            </div>
+          </div>
+  
+          <div class="fila">
+            <div class="columna">
+              <label for="propositoSoftware">Propósito/Justificación</label>
+              <textarea id="propositoSoftware" name="propositoSoftware" rows="3" required placeholder="Describa para qué necesita este software y cómo será utilizado"></textarea>
+            </div>
+            <div class="columna">
+              <label for="tipoLicencia">Tipo de licencia</label>
+              <select id="tipoLicencia" name="tipoLicencia" required>
+                <option value="" disabled selected>Seleccione...</option>
+                <option value="corporativa">Licencia corporativa existente</option>
+                <option value="nueva">Requiere nueva licencia</option>
+                <option value="trial">Versión de prueba</option>
+                <option value="opensource">Software libre/open source</option>
+              </select>
+            </div>
+          </div>
+  
+          <div class="fila">
+            <div class="columna">
+              <label for="observaciones">Observaciones adicionales</label>
+              <textarea id="observaciones" name="observaciones" rows="2" placeholder="Cualquier detalle adicional..."></textarea>
+            </div>
+          </div>
+        </div>
+  
+        <div class="botones">
+          <button type="button" id="botonLimpiarSoftware" class="boton-secundario">
+            <i class="fas fa-eraser"></i> Limpiar
+          </button>
+          <button type="submit" class="boton-primario">
+            <i class="fas fa-paper-plane"></i> Enviar Solicitud
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>  
